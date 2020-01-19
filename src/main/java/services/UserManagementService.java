@@ -18,6 +18,8 @@ public interface UserManagementService {
 
     boolean isUserValid(String login, String password);
 
-    boolean isUserExist(String login);
+    boolean isUserLoginExist(String login);
+
+    boolean isUserEmailExist(String email);
 
 }
