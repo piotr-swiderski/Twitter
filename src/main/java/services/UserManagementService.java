@@ -4,7 +4,7 @@ import model.User;
 
 import java.util.Set;
 
-public interface userManagementService {
+public interface UserManagementService {
 
     void saveUser(User user);
 

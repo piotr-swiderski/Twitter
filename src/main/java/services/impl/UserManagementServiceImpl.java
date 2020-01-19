@@ -3,12 +3,12 @@ package services.impl;
 import dao.UserDAO;
 import dao.impl.UserDAOImpl;
 import model.User;
-import services.userManagementService;
+import services.UserManagementService;
 
 import javax.persistence.NoResultException;
 import java.util.Set;
 
-public class UserManagementServiceImpl implements userManagementService {
+public class UserManagementServiceImpl implements UserManagementService {
 
     private UserDAO userDAO;
 

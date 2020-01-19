@@ -15,7 +15,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "login")
+    @Column(name = "login", unique = true, nullable = false)
     private String login;
 
     @Column(name = "first_name")
@@ -24,7 +24,7 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "email")
+    @Column(name = "email", unique = true, nullable = false)
     private String email;
 
     @Column(name = "password")
@@ -34,7 +34,7 @@ public class User {
     @CreationTimestamp
     private Date dateOfRegistration;
 
-    @ManyToMany(mappedBy = "followers")
+    @ManyToMany(mappedBy = "follows")
     private Set<User> followers = new HashSet<>();
 
     @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
@@ -137,7 +137,6 @@ public class User {
 
         private UserBuilder() {
         }
-
 
         public static UserBuilder getBuilder(){
             return new UserBuilder();

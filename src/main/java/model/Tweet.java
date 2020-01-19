@@ -16,7 +16,7 @@ public class Tweet {
 
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "id_author")
-    private User user;
+    private User author;
 
     @Column(name = "published_at")
     @CreationTimestamp
@@ -29,7 +29,7 @@ public class Tweet {
     }
 
     public Tweet(User author, String message) {
-        this.user = author;
+        this.author = author;
         this.message = message;
     }
 
@@ -41,12 +41,12 @@ public class Tweet {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
+    public User getAuthor() {
+        return author;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setAuthor(User user) {
+        this.author = user;
     }
 
     public Date getPublishedAt() {
@@ -70,7 +70,7 @@ public class Tweet {
     public String toString() {
         return "Tweet{" +
                 "id=" + id +
-                ", user=" + user +
+                ", user=" + author +
                 ", publishedAt=" + publishedAt +
                 ", message='" + message + '\'' +
                 '}';
