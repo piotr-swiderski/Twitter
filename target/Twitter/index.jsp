@@ -57,7 +57,7 @@
     </nav>
 </div>
 
-<main role="main" class="container">
+<main role="posts" class="container">
     <div class="card my-4">
         <h5 class="card-header">Add tweet:</h5>
         <div class="card-body">

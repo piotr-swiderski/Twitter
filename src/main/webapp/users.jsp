@@ -51,7 +51,7 @@
                 <input class="form-control mr-sm-2" type="text" placeholder="Search">
                 <button class="btn btn-success my-2 my-sm-0" type="button">Search</button>
             </form>
-            <form class="form-inline my-2 my-lg-0" method="post" action="users">
+            <form class="form-inline my-2 my-lg-0" method="post" action="LogoutServlet">
                 <button value="logout" class="btn btn-success my-2 my-sm-0" name="logout" type="submit">Logout</button>
             </form>
         </div>
