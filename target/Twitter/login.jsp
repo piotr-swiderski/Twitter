@@ -53,7 +53,7 @@
             </div>
 
             <div class="form-group custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="defaultUnchecked" name="remember" >
+                <input type="checkbox" class="custom-control-input" id="defaultUnchecked" name="remember">
                 <label class="custom-control-label" for="defaultUnchecked">Remember me</label>
             </div>
 

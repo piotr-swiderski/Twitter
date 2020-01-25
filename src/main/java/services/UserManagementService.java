@@ -22,4 +22,6 @@ public interface UserManagementService {
 
     boolean isUserEmailExist(String email);
 
+    Set<User> getFollowedUser(String login);
+
 }

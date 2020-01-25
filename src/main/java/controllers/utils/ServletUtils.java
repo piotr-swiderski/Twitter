@@ -1,5 +1,7 @@
 package controllers.utils;
 
+import javax.servlet.http.HttpServletRequest;
+
 public class ServletUtils {
     public static final String USER_LOGIN = "login";
     public static final String USER_PASSWORD = "password";
@@ -25,4 +27,13 @@ public class ServletUtils {
     public static final String LOGON_PASSWORD_ERROR_HEADER = "INVALID ERROR";
     public static final String LOGON_PASSWORD_ERROR_MESSAGE = "Wrong password";
 
+
+    public static final String FOLLOWED_USERS = "followedUsers";
+    public static final String NOT_FOLLOWED_USERS = "notFollowedUsers";
+
+
+
+    public static String getUserLoginFromSession(HttpServletRequest req) {
+        return (String) req.getSession().getAttribute(USER_LOGIN);
+    }
 }

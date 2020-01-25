@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import=" java.util.* " %>
 <%@ page isELIgnored="false" %>
@@ -37,10 +38,10 @@
         <div class="collapse navbar-collapse" id="navb">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="posts">Posts</a>
+                    <a class="nav-link" methods="GET" href="posts">Posts</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="users">Users</a>
+                    <a class="nav-link disabled" href="javascript:void(0)">Link</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="javascript:void(0)">Disabled</a>
@@ -50,43 +51,59 @@
                 <input class="form-control mr-sm-2" type="text" placeholder="Search">
                 <button class="btn btn-success my-2 my-sm-0" type="button">Search</button>
             </form>
-            <form class="form-inline my-2 my-lg-0" method="post" action="posts">
+            <form class="form-inline my-2 my-lg-0" method="post" action="users">
                 <button value="logout" class="btn btn-success my-2 my-sm-0" name="logout" type="submit">Logout</button>
             </form>
         </div>
     </nav>
 </div>
 
-<main role="posts" class="container">
-    <div class="card my-4">
-        <h5 class="card-header">Add tweet:</h5>
-        <div class="card-body">
-            <form name="users" method="POST">
-                <div class="form-group">
-                    <textarea name="message" class="form-control" rows="3"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Add tweet</button>
-            </form>
-        </div>
-    </div>
-</main>
+<%--<main role="posts" class="container">--%>
+<%--    <div class="card my-4">--%>
+<%--        <h5 class="card-header">Add tweet:</h5>--%>
+<%--        <div class="card-body">--%>
+<%--            <form name="users" method="POST">--%>
+<%--                <div class="form-group">--%>
+<%--                    <textarea name="message" class="form-control" rows="3"></textarea>--%>
+<%--                </div>--%>
+<%--                <button type="submit" class="btn btn-primary">Add tweet</button>--%>
+<%--            </form>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</main>--%>
 
+<h1 class="text-center">followed user</h1>
 <div class="container">
-    <c:if test="${tweetList.size() > 0}">
-        <c:forEach var="i" begin="0" end="${tweetList.size()-1}">
+    <c:if test="${followedUsers.size() > 0}">
+        <c:forEach items="${followedUsers}" var="user">
             <div class="card text-white bg-info my-4">
                 <div class="card-body">
-                    <h5 class="card-title">Author: ${tweetList.get(i).getAuthor().name}</h5>
-                    <p class="card-text">${tweetList.get(i).message}</p>
-                    <br>
-                    <h6 class="card-subtitle mb-2">Post at: ${tweetList.get(i).publishedAt}</h6>
-                    <a href="#" class="card-link text-white">Card link</a>
-                    <a href="#" class="card-link text-white">Another link</a>
+                    <h5 class="card-title">login: ${user.login} password: ${user.password}</h5>
+                    <p class="card-text"> name: ${user.name} surname: ${user.lastName}</p>
+                    <h6 class="card-subtitle mb-2"><fmt:formatDate value="${user.dateOfRegistration}"
+                                                                   pattern="yyy-MM-dd HH-mm-ss"></fmt:formatDate></h6>
                 </div>
             </div>
         </c:forEach>
     </c:if>
 </div>
+
+<h1 class="text-center">not followed user</h1>
+<div class="container">
+    <c:if test="${notFollowedUsers.size() > 0}">
+        <c:forEach items="${notFollowedUsers}" var="user">
+            <div class="card text-white bg-info my-4">
+                <div class="card-body">
+                    <h5 class="card-title"> login: ${user.login} password: ${user.password}</h5>
+                    <p class="card-text"> name: ${user.name} surname: ${user.lastName}</p>
+                    <h6 class="card-subtitle mb-2"><fmt:formatDate value="${user.dateOfRegistration}"
+                                                                   pattern="yyy-MM-dd HH-mm-ss"></fmt:formatDate></h6>
+                </div>
+            </div>
+        </c:forEach>
+    </c:if>
+</div>
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

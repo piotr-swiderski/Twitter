@@ -37,10 +37,10 @@
         <div class="collapse navbar-collapse" id="navb">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="javascript:void(0)">Link</a>
+                    <a class="nav-link disabled" href="posts">Posts</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="javascript:void(0)">Link</a>
+                    <a class="nav-link disabled" href="users">Users</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="javascript:void(0)">Disabled</a>
@@ -50,11 +50,14 @@
                 <input class="form-control mr-sm-2" type="text" placeholder="Search">
                 <button class="btn btn-success my-2 my-sm-0" type="button">Search</button>
             </form>
+            <form class="form-inline my-2 my-lg-0" method="post" action="posts">
+                <button value="logout" class="btn btn-success my-2 my-sm-0" name="logout" type="submit">Logout</button>
+            </form>
         </div>
     </nav>
 </div>
 
-<main role="main" class="container">
+<main role="posts" class="container">
     <div class="card my-4">
         <h5 class="card-header">Add tweet:</h5>
         <div class="card-body">
