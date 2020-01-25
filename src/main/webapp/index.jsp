@@ -37,10 +37,10 @@
         <div class="collapse navbar-collapse" id="navb">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="posts">Posts</a>
+                    <a class="nav-link disabled" href="javascript:void(0)">Link</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="users">Users</a>
+                    <a class="nav-link disabled" href="javascript:void(0)">Link</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="javascript:void(0)">Disabled</a>

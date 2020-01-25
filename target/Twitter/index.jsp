@@ -37,10 +37,10 @@
         <div class="collapse navbar-collapse" id="navb">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="posts">Posts</a>
+                    <a class="nav-link disabled" href="javascript:void(0)">Link</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="users">Users</a>
+                    <a class="nav-link disabled" href="javascript:void(0)">Link</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="javascript:void(0)">Disabled</a>
@@ -57,7 +57,7 @@
     </nav>
 </div>
 
-<main role="posts" class="container">
+<main role="main" class="container">
     <div class="card my-4">
         <h5 class="card-header">Add tweet:</h5>
         <div class="card-body">
