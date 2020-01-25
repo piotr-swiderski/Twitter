@@ -30,7 +30,7 @@ public class LogoutServlet extends HttpServlet {
                 resp.addCookie(cookie);
             }
         }
-
+        req.getSession().setAttribute(USER_LOGIN, null);
         resp.sendRedirect("login");
     }
 
