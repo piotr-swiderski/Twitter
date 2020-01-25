@@ -51,11 +51,19 @@
                     <input name="password" class="form-control" placeholder="*****" type="password" aria-required>
                 </div>
             </div>
+
+            <div class="form-group custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="defaultUnchecked" name="remember">
+                <label class="custom-control-label" for="defaultUnchecked">Remember me</label>
+            </div>
+
             <div class="form-group">
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-block blue"> Sign up</button>
                 </div>
-                <p class="text-center"><a href="register" class="btn">Registration</a></p>
+            </div>
+            <div class="form-group">
+                <p class="text-center"><a href="register" class="btn btn-primary btn-block blue">Registration</a></p>
             </div>
         </form>
     </div>
