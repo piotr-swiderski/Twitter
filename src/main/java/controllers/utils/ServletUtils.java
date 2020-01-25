@@ -32,6 +32,12 @@ public class ServletUtils {
     public static final String NOT_FOLLOWED_USERS = "notFollowedUsers";
 
 
+    public static final String USER_TO_FOLLOW = "userToFollow";
+    public static final String USER_TO_NOT_FOLLOW = "userToNotFollow";
+
+
+
+
 
     public static String getUserLoginFromSession(HttpServletRequest req) {
         return (String) req.getSession().getAttribute(USER_LOGIN);

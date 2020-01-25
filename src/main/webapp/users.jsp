@@ -41,7 +41,7 @@
                     <a class="nav-link" methods="GET" href="posts">Posts</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="javascript:void(0)">Link</a>
+                    <a class="nav-link" methods="GET" href="users">Users</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="javascript:void(0)">Disabled</a>
@@ -51,10 +51,10 @@
                 <input class="form-control mr-sm-2" type="text" placeholder="Search">
                 <button class="btn btn-success my-2 my-sm-0" type="button">Search</button>
             </form>
-            <form class="form-inline my-2 my-lg-0" method="post" action="LogoutServlet">
-                <button value="logout" class="btn btn-success my-2 my-sm-0" name="logout" type="submit">Logout</button>
-            </form>
         </div>
+        <form class="form-inline my-2 my-lg-0" method="post" action="LogoutServlet">
+            <button value="logout" class="btn btn-success my-2 my-sm-0" name="logout" type="submit">Logout</button>
+        </form>
     </nav>
 </div>
 
@@ -76,14 +76,19 @@
 <div class="container">
     <c:if test="${followedUsers.size() > 0}">
         <c:forEach items="${followedUsers}" var="user">
-            <div class="card text-white bg-info my-4">
+            <div class="card text-black bg-white my-4 text-center">
                 <div class="card-body">
-                    <h5 class="card-title">login: ${user.login} password: ${user.password}</h5>
-                    <p class="card-text"> name: ${user.name} surname: ${user.lastName}</p>
+                    <h5 class="card-title">${user.login}</h5>
+                    <p class="card-text">${user.name} ${user.lastName}</p>
                     <h6 class="card-subtitle mb-2"><fmt:formatDate value="${user.dateOfRegistration}"
                                                                    pattern="yyy-MM-dd HH-mm-ss"></fmt:formatDate></h6>
                 </div>
             </div>
+            <form class="form-inline my-2 my-lg-0" method="post" action="followServlet">
+                <button value="${user.login}" class="btn btn-success my-2 my-sm-0" name="userToNotFollow" type="submit">
+                    Not Follow
+                </button>
+            </form>
         </c:forEach>
     </c:if>
 </div>
@@ -92,13 +97,18 @@
 <div class="container">
     <c:if test="${notFollowedUsers.size() > 0}">
         <c:forEach items="${notFollowedUsers}" var="user">
-            <div class="card text-white bg-info my-4">
+            <div class="card text-black bg-white my-4 text-center">
                 <div class="card-body">
-                    <h5 class="card-title"> login: ${user.login} password: ${user.password}</h5>
-                    <p class="card-text"> name: ${user.name} surname: ${user.lastName}</p>
+                    <h5 class="card-title">${user.login}</h5>
+                    <p class="card-text">${user.name} ${user.lastName}</p>
                     <h6 class="card-subtitle mb-2"><fmt:formatDate value="${user.dateOfRegistration}"
                                                                    pattern="yyy-MM-dd HH-mm-ss"></fmt:formatDate></h6>
                 </div>
+                <form class="form-inline my-2 my-lg-0" method="post" action="followServlet">
+                    <button value="${user.login}" class="btn btn-success my-2 my-sm-0" name="userToFollow"
+                            type="submit">Follow
+                    </button>
+                </form>
             </div>
         </c:forEach>
     </c:if>

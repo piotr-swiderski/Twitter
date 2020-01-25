@@ -44,7 +44,7 @@ public class UserDAOImpl extends AbstractDao implements UserDAO {
         TypedQuery<User> query = entityManager.createQuery("select u from User u where u.login != :login", User.class);
         query.setParameter("login", login);
         List<User> users = query.getResultList();
-        Set<User> followers = getFollowers(login);
+        Set<User> followers = getFollows(login);
         users.removeAll(followers);
         return new HashSet<>(users);
     }
