@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import=" java.util.* " %>
 <%@ page isELIgnored="false" %>
@@ -46,12 +47,19 @@
                     <a class="nav-link disabled" href="javascript:void(0)">Disabled</a>
                 </li>
             </ul>
+            <div class="d-flex align-items-center p-1 my-1 text-white-50 bg-blue rounded box-shadow">
+                <img class="mr-3" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="48"
+                     height="48">
+                <div class="lh-100">
+                    <h6 class="mb-0 mr-3 text-white lh-100">${fn:toUpperCase(login)}</h6>
+                </div>
+            </div>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                <button class="btn btn-success my-2 my-sm-0" type="button">Search</button>
+                <button class="btn btn-success my-2 my-sm-0 mr-2" type="button">Search</button>
             </form>
-            <form class="form-inline my-2 my-lg-0" method="post" action="LogoutServlet">
-                <button value="logout" class="btn btn-success my-2 my-sm-0" name="logout" type="submit">Logout</button>
+            <form class="form-inline my-2 my-lg-0 mr-3" method="post" action="LogoutServlet">
+                <button value="logout" class="btn btn-success my-2 my-sm-0 mr-3" name="logout" type="submit">Logout</button>
             </form>
         </div>
     </nav>

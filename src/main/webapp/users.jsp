@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import=" java.util.* " %>
 <%@ page isELIgnored="false" %>
@@ -36,7 +37,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navb">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav mr-auto lh-100">
                 <li class="nav-item">
                     <a class="nav-link" methods="GET" href="posts">Posts</a>
                 </li>
@@ -47,34 +48,28 @@
                     <a class="nav-link disabled" href="javascript:void(0)">Disabled</a>
                 </li>
             </ul>
+            <div class="d-flex align-items-center p-1 my-1 text-white-50 bg-blue rounded box-shadow">
+                <img class="mr-3" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="48"
+                     height="48">
+                <div class="lh-100">
+                    <h6 class="mb-0 mr-3 text-white lh-100">${fn:toUpperCase(login)}</h6>
+                </div>
+            </div>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                <button class="btn btn-success my-2 my-sm-0" type="button">Search</button>
+                <button class="btn btn-success my-2 my-sm-0 mr-2" type="button">Search</button>
+            </form>
+            <form class="form-inline my-2 my-lg-0 mr-3" method="post" action="LogoutServlet">
+                <button value="logout" class="btn btn-success my-2 my-sm-0 mr-3" name="logout" type="submit">Logout</button>
             </form>
         </div>
-        <form class="form-inline my-2 my-lg-0" method="post" action="LogoutServlet">
-            <button value="logout" class="btn btn-success my-2 my-sm-0" name="logout" type="submit">Logout</button>
-        </form>
     </nav>
 </div>
 
-<%--<main role="posts" class="container">--%>
-<%--    <div class="card my-4">--%>
-<%--        <h5 class="card-header">Add tweet:</h5>--%>
-<%--        <div class="card-body">--%>
-<%--            <form name="users" method="POST">--%>
-<%--                <div class="form-group">--%>
-<%--                    <textarea name="message" class="form-control" rows="3"></textarea>--%>
-<%--                </div>--%>
-<%--                <button type="submit" class="btn btn-primary">Add tweet</button>--%>
-<%--            </form>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--</main>--%>
 
-<h1 class="text-center">followed user</h1>
 <div class="container">
     <c:if test="${followedUsers.size() > 0}">
+        <h1 class="text-center">Following</h1>
         <c:forEach items="${followedUsers}" var="user">
             <div class="card text-black bg-white my-4 text-center">
                 <div class="card-body">
@@ -93,9 +88,9 @@
     </c:if>
 </div>
 
-<h1 class="text-center">not followed user</h1>
 <div class="container">
     <c:if test="${notFollowedUsers.size() > 0}">
+        <h1 class="text-center">Others users</h1>
         <c:forEach items="${notFollowedUsers}" var="user">
             <div class="card text-black bg-white my-4 text-center">
                 <div class="card-body">
@@ -104,15 +99,17 @@
                     <h6 class="card-subtitle mb-2"><fmt:formatDate value="${user.dateOfRegistration}"
                                                                    pattern="yyy-MM-dd HH-mm-ss"></fmt:formatDate></h6>
                 </div>
-                <form class="form-inline my-2 my-lg-0" method="post" action="followServlet">
-                    <button value="${user.login}" class="btn btn-success my-2 my-sm-0" name="userToFollow"
-                            type="submit">Follow
-                    </button>
-                </form>
             </div>
+            <form class="form-inline my-2 my-lg-0" method="post" action="followServlet">
+                <button value="${user.login}" class="btn btn-success my-2 my-sm-0" name="userToFollow"
+                        type="submit">Follow
+                </button>
+            </form>
         </c:forEach>
     </c:if>
 </div>
+
+<br><br>
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
